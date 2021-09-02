@@ -1,6 +1,6 @@
 dgc:
   domestic-mode:
     enabled: true
-    key-store: "domestic_rules"
+    key-store: "cwa-dcc-rules-booster-data"
     base-path: "/"
 
