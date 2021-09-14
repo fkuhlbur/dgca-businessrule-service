@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import javax.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,15 @@ public class DomesticRuleService {
     private final ListSigningService listSigningService;
     private final Optional<SigningService> signingService;
     private final SignedListRepository signedListRepository;
+
+    /**
+     * Creates the signature for the empty rules list after start up.
+     */
+    @PostConstruct
+    @Transactional
+    public void domesticRuleServiceInit() {
+        listSigningService.updateSignedList(getRulesList(), ListType.DomesticRules);
+    }
 
 
     /**
