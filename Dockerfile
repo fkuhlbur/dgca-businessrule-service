@@ -1,4 +1,7 @@
-FROM adoptopenjdk:11-jre-hotspot
+FROM gcr.io/distroless/java-debian10:11
+COPY scripts/Dpkg.java Dpkg.java
 COPY ./target/*.jar /app/app.jar
+RUN ["java", "Dpkg.java"]
+USER 65534:65534
 WORKDIR /app
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar ./app.jar" ]
+ENTRYPOINT ["-Djava.security.egd=file:/dev/./urandom ./app.jar"]
