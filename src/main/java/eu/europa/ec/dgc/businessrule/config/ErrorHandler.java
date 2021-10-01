@@ -50,6 +50,7 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
     public void handleClientAbortException() {
         log.error("ClientAbortException thrown.");
     }
+
     /**
      * Global Exception Handler to wrap exceptions into a readable JSON Object.
      *
