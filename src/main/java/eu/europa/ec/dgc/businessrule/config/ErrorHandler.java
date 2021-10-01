@@ -25,6 +25,7 @@ import eu.europa.ec.dgc.businessrule.restapi.dto.ProblemReportDto;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -45,6 +46,10 @@ public class ErrorHandler extends ResponseEntityExceptionHandler {
         log.error("IOException thrown.");
     }
 
+    @ExceptionHandler(ClientAbortException.class)
+    public void handleClientAbortException() {
+        log.error("ClientAbortException thrown.");
+    }
     /**
      * Global Exception Handler to wrap exceptions into a readable JSON Object.
      *
