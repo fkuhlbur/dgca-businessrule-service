@@ -4,7 +4,7 @@
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
-    <logger name="eu.europa.ec" level="DEBUG"/>
+    <logger name="eu.europa.ec" level="INFO"/>
     <root level="INFO">
       <appender-ref ref="CONSOLE"/>
     </root>
@@ -19,7 +19,7 @@
       <appender-ref ref="STDOUT-JSON"/>
     </root>
 
-    <logger name="eu.europa.ec" level="DEBUG"/>
+    <logger name="eu.europa.ec" level="INFO"/>
   </springProfile>
 
 </configuration>
