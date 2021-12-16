@@ -28,4 +28,9 @@
     <!--  Vulnerability impacts WebFlux apps only and can be ignored here.  -->
     <cve>CVE-2021-22118</cve>
   </suppress>
+  <suppress>
+    <!-- H2 is not used in production mode -->
+    <cve>CVE-2021-23463</cve>
+  </suppress>
+
 </suppressions>
